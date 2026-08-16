@@ -1,0 +1,71 @@
+/*******************************************************************************
+ * Variables used throughout the theme.
+ * Local override for al_folio_core 1.0.15 - HII Lab palette.
+ *
+ * This file REPLACES the gem's version entirely, so it must stay complete.
+ * Four values were changed from the theme defaults; each is marked HII LAB.
+ *
+ * Logo palette: navy #2F416C, orange #FF512D, grey #84868A
+ ******************************************************************************/
+
+@use "sass:color";
+
+// Colors
+$red-color: #ff3636 !default;
+$red-color-dark: #b71c1c !default;
+$orange-color: #f29105 !default;
+$blue-color: #0076df !default;
+$blue-color-dark: #00369f !default;
+
+// HII LAB - accent colour in DARK mode.
+// Lighter orange so it stays legible on the dark background (6.0:1).
+$cyan-color: #ff6b47 !default;
+
+$light-cyan-color: color.adjust($cyan-color, $lightness: 25%);
+$green-color: #00ab37 !default;
+$green-color-lime: #b7d12a !default;
+$green-color-dark: #009f06 !default;
+$green-color-light: #ddffdd !default;
+$green-color-bright: #11d68b !default;
+
+// HII LAB - accent colour in LIGHT mode: links, hover states, navbar highlight.
+// Deepened from the logo orange #ff512d so it passes WCAG AA on white (5.3:1).
+// Swap in #ff512d if you prefer the exact logo orange and accept the axe warning.
+$purple-color: #c43c10 !default;
+
+$light-purple-color: color.adjust($purple-color, $lightness: 25%);
+$pink-color: #f92080 !default;
+$pink-color-light: #ffdddd !default;
+$yellow-color: #efcc00 !default;
+
+// HII LAB - secondary / muted detail text.
+// Logo grey is #84868a; darkened slightly so small text still passes AA (5.0:1).
+$grey-color: #6e7075 !default;
+
+$grey-color-light: color.adjust($grey-color, $lightness: 40%);
+$grey-color-dark: #1c1c1d;
+$grey-900: #212529;
+
+$white-color: #ffffff !default;
+
+// HII LAB - main body text colour, taken straight from the logo navy (10:1 on white).
+$black-color: #2f416c !default;
+
+// Theme colors
+
+$code-bg-color-light: rgba($purple-color, 0.05);
+$code-bg-color-dark: #2c3237 !default;
+
+// Font awesome location
+$fa-font-path: "../webfonts";
+
+// Back To Top button config
+$back-to-top-z-index: 10;
+$back-to-top-bottom: 30px;
+$back-to-top-right: 30px;
+$back-to-top-diameter: 40px;
+$back-to-top-height: $back-to-top-diameter;
+$back-to-top-width: $back-to-top-diameter;
+
+// Max width default
+$max-content-width: 930px !default;
