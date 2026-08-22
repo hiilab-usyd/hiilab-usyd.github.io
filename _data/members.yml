@@ -1,0 +1,60 @@
+# HII Lab members.
+#
+# To add someone: copy a block, fill it in, drop their photo into
+# assets/img/people/ and put the filename in `image`.
+#
+# Fields:
+#   name      required
+#   role      required. Must match one of the groups in _pages/team.md
+#   image     filename in assets/img/people/. Omit for the placeholder.
+#   title     job title or degree programme
+#   interests short phrase, shown under the name
+#   themes    research themes they work on. Feeds the research theme cards.
+#             Valid values: immersive-training, health-tech-design,
+#                           clinical-workflow, patient-solutions
+#   email     shown as a mail link
+#   website   personal or institutional page
+#   scholar   Google Scholar profile URL
+#   alumni    true to move them to the alumni section
+#   left      what they moved on to, alumni only
+
+- name: [Full Name]
+  role: lead
+  image: [filename.jpg]
+  title: Lab Director
+  interests: Extended reality for clinical training and patient care
+  themes: [immersive-training, health-tech-design]
+  email: [name]@sydney.edu.au
+  website:
+  scholar:
+
+- name: [Full Name]
+  role: academic
+  title: Senior Lecturer
+  interests: Human-centred design of health technology
+  themes: [health-tech-design]
+  email: [name]@sydney.edu.au
+
+- name: [Full Name]
+  role: postdoc
+  title: Postdoctoral Research Fellow
+  interests: Clinical workflow integration
+  themes: [clinical-workflow]
+
+- name: [Full Name]
+  role: phd
+  title: PhD Candidate
+  interests: Immersive simulation for surgical training
+  themes: [immersive-training]
+
+- name: [Full Name]
+  role: student
+  title: Honours Student
+  interests: Patient-facing interactive tools
+  themes: [patient-solutions]
+
+- name: [Full Name]
+  role: phd
+  title: PhD, 2024
+  alumni: true
+  left: Now a Research Fellow at [Institution]

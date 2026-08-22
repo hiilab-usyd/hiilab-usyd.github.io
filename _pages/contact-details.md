@@ -9,7 +9,6 @@ nav: false
 ## Get in touch
 
 For research enquiries, collaborations, or media requests, contact us at
-## [hii.lab@sydney.edu.au](mailto:hii.lab@sydney.edu.au).
 
 ## Where we are
 
