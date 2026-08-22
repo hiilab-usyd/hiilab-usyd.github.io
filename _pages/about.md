@@ -4,6 +4,10 @@ title: about
 permalink: /
 subtitle: Advancing healthcare through extended reality (XR) and interactive technologies
 
+hero_image: hii-lab-logo.png
+hide_title: true
+
+
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 
