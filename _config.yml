@@ -71,7 +71,7 @@ al_folio:
     allow_remote_loader: false
   features:
     cv:
-      enabled: true
+      enabled: false
     distill:
       enabled: true
   compat:
@@ -189,10 +189,11 @@ newsletter:
 
 collections:
   news:
+    defaults:
+      layout: post
+    output: true
   projects:
     output: true
-  cv:
-    enabled: false
 
 # -----------------------------------------------------------------------------
 # Jekyll settings
@@ -329,9 +330,7 @@ jekyll-archives:
       year: "/blog/:year/"
       tags: "/blog/:type/:name/"
       categories: "/blog/:type/:name/"
-  books:
-    enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
-
+  
 display_tags: ["formatting", "images", "links", "math", "code", "blockquotes"] # these tags will be displayed on the front page of your blog
 display_categories: ["external-services"] # these categories will be displayed on the front page of your blog
 
