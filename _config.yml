@@ -9,12 +9,11 @@ last_name: Lab
 contact_note: >
   You can even add a little note about which of these is the best way to reach you.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  The Health Immersive Interaction (HII) Lab investigates how extended reality (XR) and interactive technologies can enhance healthcare experiences, improve medical training, and support patient care.
+  The Health & Immersive Interaction (HII) Lab is a multidisciplinary research group at the Westmead Health Precinct, advancing healthcare through extended reality (XR) and interactive technologies.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
-keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty
+    Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+keywords: XR, extended reality, health technology, HCI, medical simulation, digital health, Westmead, University of Sydney
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 apple_touch_icon: # image name in /assets/img/ (or a rooted path / absolute URL) used for iOS home-screen bookmarks; needs a real 180x180 PNG, since Safari ignores the emoji favicon above. Left empty, iOS falls back to a screenshot of the page.
@@ -174,16 +173,6 @@ disqus_shortname: al-folio # put your disqus shortname
 # you can display them in your blog by adding a link to the RSS feed.
 # Optional: Set default categories and tags for posts from each source.
 external_sources:
-  - name: medium.com
-    rss_url: https://medium.com/@al-folio/feed
-    categories: [external-posts]
-    tags: [medium]
-  - name: Google Blog
-    posts:
-      - url: https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/
-        published_date: 2024-05-14
-    categories: [external-posts]
-    tags: [google]
 
 # -----------------------------------------------------------------------------
 # Newsletter
@@ -199,16 +188,11 @@ newsletter:
 # -----------------------------------------------------------------------------
 
 collections:
-  books:
-    output: true
   news:
-    defaults:
-      layout: post
-    output: true
   projects:
     output: true
-  teachings:
-    output: true
+  cv:
+    enabled: false
 
 # -----------------------------------------------------------------------------
 # Jekyll settings
