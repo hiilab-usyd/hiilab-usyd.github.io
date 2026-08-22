@@ -12,12 +12,7 @@ nav_order: 3
 
 {% for group in groups %}
   {% assign members = site.data.members | where: "role", group %}
-  {% assign current = "" | split: "" %}
-  {% for m in members %}
-    {% unless m.alumni %}
-      {% assign current = current | push: m %}
-    {% endunless %}
-  {% endfor %}
+  {% assign current = members | where_exp: "m", "m.alumni != true" %}
 
   {% if current.size > 0 %}
     <h2 class="team-heading">{{ labels[forloop.index0] }}</h2>
@@ -44,10 +39,7 @@ nav_order: 3
   {% endif %}
 {% endfor %}
 
-{% assign alumni = "" | split: "" %}
-{% for m in site.data.members %}
-  {% if m.alumni %}{% assign alumni = alumni | push: m %}{% endif %}
-{% endfor %}
+{% assign alumni = site.data.members | where: "alumni", true %}
 
 {% if alumni.size > 0 %}
   <h2 class="team-heading">Alumni</h2>

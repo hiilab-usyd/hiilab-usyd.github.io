@@ -5,7 +5,7 @@
 #
 # Fields:
 #   name      required
-#   role      required. Must match one of the groups in _pages/team.md
+#   role      required. One of: lead, academic, postdoc, phd, student, staff
 #   image     filename in assets/img/people/. Omit for the placeholder.
 #   title     job title or degree programme
 #   interests short phrase, shown under the name
@@ -17,44 +17,44 @@
 #   scholar   Google Scholar profile URL
 #   alumni    true to move them to the alumni section
 #   left      what they moved on to, alumni only
+#
+# Avoid square brackets in plain values. YAML reads them as lists.
 
-- name: [Full Name]
+- name: Your Name Here
   role: lead
-  image: [filename.jpg]
+  image: your-photo.jpg
   title: Lab Director
   interests: Extended reality for clinical training and patient care
   themes: [immersive-training, health-tech-design]
-  email: [name]@sydney.edu.au
-  website:
-  scholar:
+  email: "you@sydney.edu.au"
 
-- name: [Full Name]
+- name: Example Academic
   role: academic
   title: Senior Lecturer
   interests: Human-centred design of health technology
   themes: [health-tech-design]
-  email: [name]@sydney.edu.au
+  email: "someone@sydney.edu.au"
 
-- name: [Full Name]
+- name: Example Postdoc
   role: postdoc
   title: Postdoctoral Research Fellow
   interests: Clinical workflow integration
   themes: [clinical-workflow]
 
-- name: [Full Name]
+- name: Example PhD Candidate
   role: phd
   title: PhD Candidate
   interests: Immersive simulation for surgical training
   themes: [immersive-training]
 
-- name: [Full Name]
+- name: Example Student
   role: student
   title: Honours Student
   interests: Patient-facing interactive tools
   themes: [patient-solutions]
 
-- name: [Full Name]
+- name: Example Alumnus
   role: phd
   title: PhD, 2024
   alumni: true
-  left: Now a Research Fellow at [Institution]
+  left: Now a Research Fellow elsewhere
