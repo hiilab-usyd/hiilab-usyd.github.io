@@ -1,0 +1,34 @@
+# Research funding.
+#
+# Grants are separate records from projects. A grant can fund several
+# projects, and a project can run without funding.
+#
+# Fields:
+#   id            required, unique. Referenced from projects.
+#   title         required
+#   agency        required, the funding body
+#   program       scheme or programme name
+#   amount        number only, no symbols or commas
+#   currency      defaults to AUD
+#   start / end   YYYY-MM. Leave `end` blank for ongoing.
+#   role          lead, partner, or contract
+#   investigators list of names
+#   themes        theme slugs from themes.yml. Drives the grant counts
+#                 on the research theme cards.
+#   status        active or completed
+#   url           the funder's announcement page, if there is one
+
+- id: example-grant
+  title: Immersive simulation for emergency airway management
+  agency: National Health and Medical Research Council
+  program: Ideas Grant
+  amount: 650000
+  currency: AUD
+  start: 2025-01
+  end: 2027-12
+  role: lead
+  investigators:
+    - Your Name Here
+    - Example Academic
+  themes: [immersive-training, clinical-workflow]
+  status: active

@@ -1,0 +1,42 @@
+# Research themes. The `slug` is the identifier used everywhere else:
+# in members.yml (themes:), in papers.bib (topics = {...}),
+# and in grants.yml (themes:).
+#
+# Changing a slug means updating every reference to it, so pick carefully.
+
+- slug: immersive-training
+  name: Immersive Training & Simulation
+  short: Training & Simulation
+  icon: fa-solid fa-vr-cardboard
+  order: 1
+  description: >
+    Extended reality environments for rehearsing clinical procedures,
+    building team coordination, and practising rare or high-risk scenarios
+    without risk to patients.
+
+- slug: health-tech-design
+  name: Human-Centred Health Technology Design
+  short: Technology Design
+  icon: fa-solid fa-drafting-compass
+  order: 2
+  description: >
+    Designing health technologies with the people who use them, drawing on
+    participatory methods and evaluating what actually works in practice.
+
+- slug: clinical-workflow
+  name: Clinical Workflow Integration
+  short: Workflow Integration
+  icon: fa-solid fa-diagram-project
+  order: 3
+  description: >
+    Understanding how new technology meets existing clinical routines, and
+    designing systems that fit the realities of hospital and community care.
+
+- slug: patient-solutions
+  name: Patient-Centred Interactive Solutions
+  short: Patient Solutions
+  icon: fa-solid fa-hand-holding-heart
+  order: 4
+  description: >
+    Interactive tools that support patients directly, through rehabilitation,
+    education, self-management, and improved healthcare experiences.
