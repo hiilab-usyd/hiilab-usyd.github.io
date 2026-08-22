@@ -1,6 +1,6 @@
 ---
 layout: about
-title: about
+title: home
 permalink: /
 subtitle: Advancing healthcare through extended reality (XR) and interactive technologies
 
