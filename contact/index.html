@@ -22,7 +22,7 @@ ninja.data = [{
     },
   },{id: "nav-news",
           title: "news",
-          description: "",
+          description: "Announcements, publications, and opportunities from the HII Lab.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/news/";
@@ -69,7 +69,12 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/contact/join-us/";
               },
-            },{
+            },{id: "news-paper-accepted-at-chi-2027",
+          title: 'Paper accepted at CHI 2027',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/example_news/";
+            },},{
         id: 'social-rss',
         title: 'RSS Feed',
         section: 'Socials',
