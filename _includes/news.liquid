@@ -1,0 +1,140 @@
+{% assign news_items = site.news | sort: 'date' | reverse %}
+{% if include.limit and page.announcements.limit %}
+  {% assign news_limit = page.announcements.limit %}
+{% else %}
+  {% assign news_limit = news_items.size %}
+{% endif %}
+
+<div class="news-list">
+  {% if news_items.size > 0 %}
+    {% for item in news_items limit: news_limit %}
+      {% assign cat = site.data.news_categories[item.category] %}
+      <article class="news-item">
+        <div class="news-meta">
+          {% if cat %}
+            <span class="news-cat" style="color: {{ cat.color }}">
+              <i class="{{ cat.icon }}"></i> {{ cat.label }}
+            </span>
+          {% endif %}
+          {% if item.status %}
+            <span class="news-status news-status-{{ item.status }}">{{ item.status }}</span>
+          {% endif %}
+          <time class="news-date">{{ item.date | date: '%d %b %Y' }}</time>
+        </div>
+
+        <h3 class="news-title">
+          {% if item.inline %}
+            {{ item.title }}
+          {% else %}
+            <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+          {% endif %}
+        </h3>
+
+        <div class="news-body">
+          {% if item.inline %}
+            {{ item.content | emojify }}
+          {% else %}
+            {{ item.excerpt | strip_html | truncatewords: 45 }}
+          {% endif %}
+        </div>
+
+        {% if item.images %}
+          <div class="news-thumbs">
+            {% for img in item.images %}
+              <img src="{{ img | relative_url }}" alt="{{ item.title }}" loading="lazy">
+            {% endfor %}
+          </div>
+        {% elsif item.thumbnail %}
+          <div class="news-thumbs">
+            <img src="{{ item.thumbnail | relative_url }}" alt="{{ item.title }}" loading="lazy">
+          </div>
+        {% endif %}
+      </article>
+    {% endfor %}
+  {% else %}
+    <p>No news yet.</p>
+  {% endif %}
+</div>
+
+<style>
+  .news-item {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+  .news-item:last-child {
+    border-bottom: none;
+  }
+  .news-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .news-cat {
+    font-weight: 600;
+  }
+  .news-cat i {
+    margin-right: 0.25rem;
+  }
+  .news-status {
+    padding: 0.1rem 0.45rem;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 0.72rem;
+  }
+  .news-status-open {
+    background: #e3f0e6;
+    color: #1f6b34;
+  }
+  .news-status-closed {
+    background: #eceded;
+    color: #6e7075;
+  }
+  .news-date {
+    color: var(--global-text-color-light);
+    margin-left: auto;
+  }
+  .news-title {
+    margin: 0.4rem 0 0.35rem;
+    font-size: 1.08rem;
+    line-height: 1.3;
+  }
+  .news-title a {
+    color: var(--global-text-color);
+  }
+  .news-title a:hover {
+    color: var(--global-theme-color);
+  }
+  .news-body {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--global-text-color);
+  }
+  .news-body p:last-child {
+    margin-bottom: 0;
+  }
+  .news-thumbs {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .news-thumbs img {
+    height: 110px;
+    width: auto;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+  @media (max-width: 576px) {
+    .news-date {
+      margin-left: 0;
+      width: 100%;
+    }
+    .news-thumbs img {
+      height: 80px;
+    }
+  }
+</style>

@@ -1,0 +1,27 @@
+# News categories. The key is what goes in a news item's `category:` field.
+# Icons are Font Awesome classes, already available in the theme.
+
+news:
+  label: News
+  icon: fa-solid fa-bullhorn
+  color: "#2f416c"
+
+publication:
+  label: Publication
+  icon: fa-solid fa-file-lines
+  color: "#c43c10"
+
+position:
+  label: Position
+  icon: fa-solid fa-user-plus
+  color: "#6e7075"
+
+award:
+  label: Award
+  icon: fa-solid fa-trophy
+  color: "#c43c10"
+
+event:
+  label: Event
+  icon: fa-solid fa-calendar-day
+  color: "#2f416c"
