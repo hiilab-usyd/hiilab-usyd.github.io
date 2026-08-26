@@ -7,7 +7,7 @@ nav: false
 ---
 
 <script type="application/json" id="pub-meta">
-[{% bibliography --template bib_meta --group_by none %}{"key":"__end__","pubtype":"","topics":""}]
+{% bibliography --template bib_meta --group_by none %}
 </script>
 
 <script type="application/json" id="pub-themes">
@@ -39,13 +39,25 @@ nav: false
     { id: "submitted", label: "Submitted" }
   ];
 
-  function readJSON(id) {
+    function readJSON(id) {
     var el = document.getElementById(id);
     if (!el) return [];
     try { return JSON.parse(el.textContent.trim()); } catch (e) { return []; }
   }
 
-  var meta = readJSON("pub-meta").filter(function (m) { return m.key !== "__end__"; });
+  function readMeta(id) {
+    var el = document.getElementById(id);
+    if (!el) return [];
+    var out = [];
+    var re = /@@(\{.*?\})@@/g;
+    var m;
+    while ((m = re.exec(el.textContent)) !== null) {
+      try { out.push(JSON.parse(m[1])); } catch (e) {}
+    }
+    return out;
+  }
+
+  var meta = readMeta("pub-meta");
   var themes = readJSON("pub-themes");
 
   // Attach type and topics to each rendered entry.
