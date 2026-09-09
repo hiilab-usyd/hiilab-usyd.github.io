@@ -26,6 +26,29 @@ layout: page
 {{ content }}
 </div>
 
+{% if page.papers != blank %}
+<div class="project-pubs">
+  <div class="project-info-label">Publications</div>
+  <ul class="project-list">
+  {% for pub in page.papers %}
+    <li class="project-pub">
+      <span class="project-pub-title">{{ pub.title }}</span>
+      <span class="project-pub-meta">{{ pub.authors | join: ", " }}. {{ pub.venue }}{% if pub.year != "" %}, {{ pub.year }}{% endif %}.</span>
+      {% if pub.pdf != "" or pub.doi != "" %}
+      <span class="project-pub-links">
+        {% if pub.pdf != "" %}
+          {% if pub.pdf contains "://" %}{% assign pdf_url = pub.pdf %}{% else %}{% assign pdf_url = pub.pdf | prepend: '/assets/pdf/' | relative_url %}{% endif %}
+          <a href="{{ pdf_url }}">PDF</a>
+        {% endif %}
+        {% if pub.doi != "" %}<a href="https://doi.org/{{ pub.doi }}">DOI</a>{% endif %}
+      </span>
+      {% endif %}
+    </li>
+  {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
 <div class="project-info">
   {% if page.lead != blank or page.members != blank %}
   <div class="project-info-block">
@@ -117,4 +140,18 @@ layout: page
 .project-list { list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.7; }
 .project-role { font-size: 0.75rem; color: var(--global-text-color-light); }
 .project-back { margin-top: 2rem; font-size: 0.9rem; }
+
+.project-pubs {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--global-divider-color);
+}
+.project-pub { margin-bottom: 0.9rem; line-height: 1.4; }
+.project-pub-title { display: block; font-weight: 600; }
+.project-pub-meta {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--global-text-color-light);
+}
+.project-pub-links { font-size: 0.8rem; display: inline-flex; gap: 0.6rem; margin-top: 0.15rem; }
 </style>
