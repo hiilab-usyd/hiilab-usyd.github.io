@@ -7,6 +7,8 @@ nav: true
 nav_order: 2
 dropdown: true
 children:
+  - title: themes
+    permalink: /research/themes/
   - title: projects
     permalink: /projects/
   - title: publications
