@@ -1,0 +1,143 @@
+---
+layout: page
+---
+
+{% assign p = page.paper %}
+{% assign themes = site.data.themes | sort: "order" %}
+
+<div class="paper-meta">
+  {% if p.abbr != "" %}<span class="paper-badge">{{ p.abbr }}</span>{% endif %}
+  {% if p.award != "" %}<span class="paper-badge paper-award">{{ p.award }}</span>{% endif %}
+  {% if p.year != "" %}<span class="paper-year">{{ p.year }}</span>{% endif %}
+</div>
+
+{% if p.authors.size > 0 %}
+<p class="paper-authors">{{ p.authors | join: ", " }}</p>
+{% endif %}
+
+{% if p.venue != "" %}
+<p class="paper-venue">{{ p.venue }}</p>
+{% endif %}
+
+{% if p.topics.size > 0 %}
+<div class="paper-tags">
+{% for s in p.topics %}
+  {% assign t = themes | where: "slug", s | first %}
+  {% if t %}
+  <a class="paper-tag" href="{{ '/publications/' | relative_url }}?topic={{ s }}">{{ t.short | default: t.name }}</a>
+  {% else %}
+  <span class="paper-tag paper-tag-unknown">unknown topic: {{ s }}</span>
+  {% endif %}
+{% endfor %}
+</div>
+{% endif %}
+
+{% assign links = "" %}
+<div class="paper-links">
+  {% if p.pdf != "" %}
+    {% if p.pdf contains "://" %}{% assign pdf_url = p.pdf %}{% else %}{% assign pdf_url = p.pdf | prepend: '/assets/pdf/' | relative_url %}{% endif %}
+    <a class="paper-link" href="{{ pdf_url }}">PDF</a>
+  {% endif %}
+  {% if p.doi != "" %}<a class="paper-link" href="https://doi.org/{{ p.doi }}">DOI</a>{% endif %}
+  {% if p.arxiv != "" %}<a class="paper-link" href="https://arxiv.org/abs/{{ p.arxiv }}">arXiv</a>{% endif %}
+  {% if p.code != "" %}<a class="paper-link" href="{{ p.code }}">Code</a>{% endif %}
+  {% if p.video != "" %}<a class="paper-link" href="{{ p.video }}">Video</a>{% endif %}
+  {% if p.slides != "" %}<a class="paper-link" href="{{ p.slides }}">Slides</a>{% endif %}
+  {% if p.poster != "" %}<a class="paper-link" href="{{ p.poster }}">Poster</a>{% endif %}
+  {% if p.website != "" %}<a class="paper-link" href="{{ p.website }}">Website</a>{% endif %}
+</div>
+
+{% if p.abstract != "" %}
+<div class="paper-section">
+  <div class="paper-label">Abstract</div>
+  <p class="paper-abstract">{{ p.abstract }}</p>
+</div>
+{% endif %}
+
+{% if p.project != "" %}
+  {% assign proj = site.projects | where_exp: "d", "d.url contains p.project" | first %}
+  {% if proj %}
+  <div class="paper-section">
+    <div class="paper-label">Project</div>
+    <p><a href="{{ proj.url | relative_url }}">{{ proj.title }}</a></p>
+  </div>
+  {% endif %}
+{% endif %}
+
+{% if p.bibtex != "" %}
+<div class="paper-section">
+  <div class="paper-label">BibTeX</div>
+  <pre class="paper-bibtex"><code>{{ p.bibtex }}</code></pre>
+</div>
+{% endif %}
+
+<p class="paper-back"><a href="{{ '/publications/' | relative_url }}">All publications</a></p>
+
+<style>
+.paper-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.paper-badge {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: var(--global-theme-color);
+  color: #fff;
+}
+.paper-award { background: transparent; border: 1px solid var(--global-theme-color); color: var(--global-theme-color); }
+.paper-year { font-size: 0.85rem; color: var(--global-text-color-light); }
+.paper-authors { margin-bottom: 0.2rem; font-size: 0.95rem; }
+.paper-venue { font-size: 0.88rem; color: var(--global-text-color-light); font-style: italic; }
+.paper-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 1rem 0; }
+.paper-tag {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--global-divider-color);
+  color: var(--global-text-color-light);
+}
+.paper-tag:hover { border-color: var(--global-theme-color); text-decoration: none; }
+.paper-tag-unknown { border-color: #c0392b; color: #c0392b; }
+.paper-links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0; }
+.paper-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.3rem 0.85rem;
+  border-radius: 6px;
+  border: 1px solid var(--global-theme-color);
+  color: var(--global-theme-color);
+}
+.paper-link:hover {
+  background: var(--global-theme-color);
+  color: #fff;
+  text-decoration: none;
+}
+.paper-section {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--global-divider-color);
+}
+.paper-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--global-text-color-light);
+  margin-bottom: 0.5rem;
+}
+.paper-abstract { font-size: 0.92rem; line-height: 1.6; }
+.paper-bibtex {
+  font-size: 0.78rem;
+  padding: 0.9rem;
+  border-radius: 8px;
+  background: var(--global-bg-color);
+  border: 1px solid var(--global-divider-color);
+  overflow-x: auto;
+}
+.paper-back { margin-top: 2rem; font-size: 0.9rem; }
+</style>

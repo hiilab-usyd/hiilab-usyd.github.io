@@ -1,9 +1,11 @@
 # Parses _bibliography/papers.bib once per build and makes the entries
-# available to Liquid, then attaches each paper to its project.
+# available to Liquid, then attaches each paper to its project and gives
+# every paper its own page.
 #
 # After this runs:
-#   site.data.papers   -> every paper, newest first
-#   page.papers        -> on a project page, that project's papers
+#   site.data.papers      -> every paper, newest first
+#   page.papers           -> on a project page, that project's papers
+#   /publications/<key>/  -> a page per bib entry, using _layouts/paper.liquid
 #
 # A paper joins a project via `project = {filename}` in the bib entry,
 # where filename is the name of the file in _projects/ without .md
@@ -53,7 +55,7 @@ module HiiLab
 
     def to_hash(entry)
       {
-        "key" => entry.key.to_s,
+        "key" => slug(entry.key.to_s),
         "title" => clean(entry["title"]),
         "authors" => authors(entry),
         "year" => clean(entry["year"]),
@@ -63,16 +65,29 @@ module HiiLab
         "topics" => list(entry["topics"]),
         "project" => clean(entry["project"]),
         "selected" => clean(entry["selected"]).downcase == "true",
-        "doi" => clean(entry["doi"]),
-        "pdf" => clean(entry["pdf"]),
-        "url" => clean(entry["url"]),
+        "award" => clean(entry["award"]),
+        "preview" => clean(entry["preview"]),
         "abstract" => clean(entry["abstract"]),
+        "doi" => clean(entry["doi"]),
+        "arxiv" => clean(entry["arxiv"]),
+        "pdf" => clean(entry["pdf"]),
+        "code" => clean(entry["code"]),
+        "video" => clean(entry["video"]),
+        "slides" => clean(entry["slides"]),
+        "poster" => clean(entry["poster"]),
+        "website" => clean(entry["website"]),
+        "url" => clean(entry["url"]),
+        "bibtex" => entry.to_s.strip,
       }
     end
 
     def clean(value)
       return "" if value.nil?
       value.to_s.gsub(/[{}]/, "").gsub(/\s+/, " ").strip
+    end
+
+    def slug(value)
+      value.downcase.gsub(/[^a-z0-9]+/, "-").gsub(/\A-|-\z/, "")
     end
 
     def list(value)
@@ -90,6 +105,35 @@ module HiiLab
           name.strip
         end
       end
+    end
+  end
+
+  # Creates /publications/<key>/ for every entry in the bibliography.
+  # Runs after BibIndex, which populates site.data["papers"].
+  class PaperPages < Jekyll::Generator
+    safe true
+    priority :low
+
+    def generate(site)
+      papers = site.data["papers"]
+      return if papers.nil? || papers.empty?
+
+      papers.each do |paper|
+        key = paper["key"]
+        next if key.nil? || key.empty?
+
+        page = Jekyll::PageWithoutAFile.new(site, site.source, File.join("publications", key), "index.html")
+        page.data.merge!(
+          "layout" => "paper",
+          "title" => paper["title"],
+          "description" => paper["abstract"],
+          "paper" => paper
+        )
+        page.content = ""
+        site.pages << page
+      end
+
+      Jekyll.logger.info "BibIndex:", "generated #{papers.length} paper pages"
     end
   end
 end

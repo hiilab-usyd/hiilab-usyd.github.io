@@ -32,7 +32,7 @@ layout: page
   <ul class="project-list">
   {% for pub in page.papers %}
     <li class="project-pub">
-      <span class="project-pub-title">{{ pub.title }}</span>
+        <span class="project-pub-title"><a href="{{ '/publications/' | prepend: site.baseurl | append: pub.key | append: '/' }}">{{ pub.title }}</a></span>
       <span class="project-pub-meta">{{ pub.authors | join: ", " }}. {{ pub.venue }}{% if pub.year != "" %}, {{ pub.year }}{% endif %}.</span>
       {% if pub.pdf != "" or pub.doi != "" %}
       <span class="project-pub-links">
