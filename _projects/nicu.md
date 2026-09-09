@@ -3,6 +3,7 @@ layout: project
 published: true
 title: Human-Centred Design Methods in Neonatal Intensive Care Units
 status: active
+featured: true
 summary: How can Human-Centred Design and Design Thinking help improve the workflow at Neonatal Intensive Care Units.
 themes: [design thinking, HCI]
 image:

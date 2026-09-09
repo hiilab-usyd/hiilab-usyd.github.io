@@ -3,6 +3,7 @@ layout: project
 published: false
 title: Project title goes here
 status: active
+featured: false
 summary: One or two sentences. This is what shows on the projects page card.
 themes: [immersive-training, clinical-workflow]
 image:
@@ -31,3 +32,4 @@ Notes for whoever is adding a project:
 - `image` is a filename in `assets/img/projects/`. Leave blank for no image.
 - `end` blank means ongoing.
 - `importance` orders the cards. Lower numbers come first.
+- `featured: true` puts the project on the front page. Keep it to three or four.
