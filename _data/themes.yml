@@ -40,3 +40,11 @@
   description: >
     Interactive tools that support patients directly, through rehabilitation,
     education, self-management, and improved healthcare experiences.
+
+- slug: HCI
+  name: Human-Computer Interaction
+  shirt: HCI
+  icon: fa-diagram-project
+  order: 5
+  description: >
+    What we all do lol.
