@@ -1,0 +1,13 @@
+:root {
+  --global-text-color: #1a3a52;
+  --global-theme-color: #e8591a;
+  --global-hover-color: #e8591a;
+  --global-hover-text-color: #ffffff;
+}
+
+html[data-theme=dark] {
+  --global-text-color: #e8e8e8;
+  --global-theme-color: #ff8c42;
+  --global-hover-color: #ff8c42;
+  --global-hover-text-color: #1a3a52;
+}
