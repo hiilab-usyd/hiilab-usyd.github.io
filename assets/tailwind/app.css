@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+/* Navbar logo mark styling */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+  padding: 0;
+}
+
+.navbar-mark {
+  height: 50px;
+  width: auto;
+  display: block;
+}
+
+/* Responsive: adjust mark size on smaller screens */
+@media (max-width: 576px) {
+  .navbar-brand {
+    margin-right: 1rem;
+  }
+  
+  .navbar-mark {
+    height: 40px;
+  }
+}
+
+/* Ensure mark doesn't stretch with navbar */
+.navbar {
+  align-items: center;
+}

@@ -29,6 +29,20 @@ module HiiLab
       bib = BibTeX.open(path)
       papers = bib.select { |e| e.respond_to?(:entry?) && e.entry? }.map { |e| to_hash(e) }
       papers.sort_by! { |p| [-p["year"].to_i, p["title"].to_s] }
+      seen = {}
+      papers.each do |paper|
+        url_slug = paper["key"]
+        if url_slug.empty?
+          Jekyll.logger.abort_with "BibIndex:",
+            "bib key '#{paper["bibkey"]}' has no usable characters for a URL. Use letters and numbers."
+        end
+        if seen.key?(url_slug)
+          Jekyll.logger.abort_with "BibIndex:",
+            "bib keys '#{seen[url_slug]}' and '#{paper["bibkey"]}' both produce /publications/#{url_slug}/. " \
+            "Keys must stay unique after lowercasing and stripping punctuation. Rename one."
+        end
+        seen[url_slug] = paper["bibkey"]
+      end
       site.data["papers"] = papers
 
       collection = site.collections["projects"]
@@ -56,6 +70,7 @@ module HiiLab
     def to_hash(entry)
       {
         "key" => slug(entry.key.to_s),
+        "bibkey" => entry.key.to_s,
         "title" => clean(entry["title"]),
         "authors" => authors(entry),
         "year" => clean(entry["year"]),
