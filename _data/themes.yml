@@ -43,8 +43,34 @@
 
 - slug: HCI
   name: Human-Computer Interaction
-  shirt: HCI
-  icon: fa-diagram-project
+  short: HCI
+  icon: fa-solid fa-computer-mouse
   order: 5
   description: >
-    What we all do lol.
+    We apply human-computer interaction theory and methods across all of our
+    work: contextual inquiry and observation in clinical and field settings,
+    participatory and co-design with clinicians and patients, expert
+    usability evaluation, and controlled user studies. This is also
+    foundational research in its own right: how people perceive, move, and
+    make decisions in immersive and interactive systems, including their
+    effects on the body.
+
+- slug: human-robot-interaction
+  name: Human-Robot Interaction
+  short: HRI
+  icon: fa-solid fa-robot
+  order: 6
+  description: >
+    Designing how people and robots work together in health settings, from
+    assistive and rehabilitation robotics to robots that support clinical
+    teams, with a focus on safety, trust and acceptance.
+
+- slug: human-ai-interaction
+  name: Human-AI Interaction
+  short: Human-AI
+  icon: fa-solid fa-brain
+  order: 7
+  description: >
+    Studying how clinicians and patients understand, trust and act on AI
+    systems, and designing AI-supported tools that keep people informed and
+    in control.

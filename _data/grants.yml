@@ -18,17 +18,22 @@
 #   status        active or completed
 #   url           the funder's announcement page, if there is one
 
-- id: example-grant
-  title: Immersive simulation for emergency airway management
-  agency: National Health and Medical Research Council
-  program: Ideas Grant
-  amount: 650000
-  currency: AUD
-  start: 2025-01
-  end: 2027-12
-  role: lead
-  investigators:
-    - Your Name Here
-    - Example Academic
-  themes: [immersive-training, clinical-workflow]
-  status: active
+# No funded grants yet. Replace the empty list below with the first entry,
+# copied from this template:
+#
+# - id: short-unique-id
+#   title: Grant title
+#   agency: Funding body
+#   program: Scheme name
+#   amount: 650000
+#   currency: AUD
+#   start: 2027-01
+#   end: 2029-12
+#   role: lead
+#   investigators:
+#     - Name One
+#     - Name Two
+#   themes: [immersive-training]
+#   status: active
+
+[]

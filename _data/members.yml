@@ -5,13 +5,22 @@
 #
 # Fields:
 #   name      required
-#   role      required. One of: lead, academic, postdoc, phd, student, staff
+#   role      required. One of:
+#               lead      Lab Lead
+#               academic  Academic Staff
+#               postdoc   Postdoctoral Researchers
+#               phd       PhD Candidates
+#               masters   Masters Capstone Students
+#               honours   Honours Students
+#               student   Students (anyone else, e.g. interns)
+#               staff     Professional Staff
 #   image     filename in assets/img/people/. Omit for the placeholder.
 #   title     job title or degree programme
 #   interests short phrase, shown under the name
 #   themes    research themes they work on. Feeds the research theme cards.
 #             Valid values: immersive-training, health-tech-design,
-#                           clinical-workflow, patient-solutions
+#                           clinical-workflow, patient-solutions, HCI,
+#                           human-robot-interaction, human-ai-interaction
 #   email     shown as a mail link
 #   website   personal or institutional page
 #   scholar   Google Scholar profile URL
@@ -20,40 +29,37 @@
 #
 # Avoid square brackets in plain values. YAML reads them as lists.
 
-- name: Your Name Here
+- name: Soojeong Yoo
   role: lead
-  title: Lab Director
-  interests: Extended reality for clinical training and patient care
-  themes: [immersive-training, health-tech-design]
-  email: "you@sydney.edu.au"
+  title: Lecturer in Design
+  interests: Immersive systems for surgical training, clinical workflows and patient care
+  themes: [immersive-training, health-tech-design, clinical-workflow, patient-solutions]
+  email: "soojeong.yoo@sydney.edu.au"
+  website: https://profiles.sydney.edu.au/soojeong.yoo
 
-- name: Example Academic
+- name: Carlos Alfredo Tirado Cortes
   role: academic
-  title: Senior Lecturer
-  interests: Human-centred design of health technology
-  themes: [health-tech-design]
-  email: "someone@sydney.edu.au"
+  title: Lecturer in Interaction Design
+  image: carlos-tirado-cortes.jpg
+  interests: Cybersickness, immersive training for high-stakes work, and health technology design
+  themes: [immersive-training, health-tech-design, HCI]
+  email: "carlos.tiradocortes@sydney.edu.au"
+  scholar: https://scholar.google.com/citations?user=MrPRkhIAAAAJ
 
-- name: Example Postdoc
-  role: postdoc
-  title: Postdoctoral Research Fellow
-  interests: Clinical workflow integration
-  themes: [clinical-workflow]
+- name: Howe Yuan Zhu
+  role: academic
+  interests: Extended reality, human-robot interaction and human-AI interaction
+  themes: [human-robot-interaction, human-ai-interaction]
+  website: https://profiles.sydney.edu.au/howe.zhu
 
-- name: Example PhD Candidate
-  role: phd
-  title: PhD Candidate
-  interests: Immersive simulation for surgical training
-  themes: [immersive-training]
+- name: Yulin Zeng
+  role: masters
+  title: Masters Capstone Student
+  interests: Older migrants and online health information seeking
+  themes: [patient-solutions, HCI, human-robot-interaction, human-ai-interaction]
 
-- name: Example Student
-  role: student
+- name: Jolene Galloway
+  role: honours
   title: Honours Student
-  interests: Patient-facing interactive tools
-  themes: [patient-solutions]
-
-- name: Example Alumnus
-  role: phd
-  title: PhD, 2024
-  alumni: true
-  left: Now a Research Fellow elsewhere
+  interests: Human-centred design in neonatal intensive care
+  themes: [health-tech-design, clinical-workflow]

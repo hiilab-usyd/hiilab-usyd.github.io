@@ -7,8 +7,8 @@ nav: true
 nav_order: 3
 ---
 
-{% assign groups = "lead,academic,postdoc,phd,student,staff" | split: "," %}
-{% assign labels = "Lab Director,Academic Staff,Postdoctoral Researchers,PhD Candidates,Students,Professional Staff" | split: "," %}
+{% assign groups = "lead,academic,postdoc,phd,masters,honours,student,staff" | split: "," %}
+{% assign labels = "Lab Lead,Academic Staff,Postdoctoral Researchers,PhD Candidates,Masters Capstone Students,Honours Students,Students,Professional Staff" | split: "," %}
 {% for group in groups %}
 {% assign members = site.data.members | where: "role", group %}
 {% assign current = members | where_exp: "m", "m.alumni != true" %}

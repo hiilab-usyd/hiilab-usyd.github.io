@@ -12,7 +12,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 
 announcements:
-  enabled: true 
+  enabled: false # set back to true when the website launch post goes up
   scrollable: true
   limit: 5
 

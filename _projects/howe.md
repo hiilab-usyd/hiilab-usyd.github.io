@@ -3,7 +3,7 @@ layout: project
 published: true
 title: This is Fantastic Project Led by Howe
 status: active
-featured: true
+featured: false
 summary: Amazing project.
 themes: [immersive-training, clinical-workflow]
 image:
@@ -12,7 +12,7 @@ members:
   - Howe's Students
 partners:
   - Howe's Research Partners
-grants: [example-grant]
+grants: []
 start: 2025-01
 end:
 importance: 1

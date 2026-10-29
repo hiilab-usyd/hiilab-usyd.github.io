@@ -9,12 +9,16 @@ themes: [immersive-training, clinical-workflow]
 image:
 lead: Your Name Here
 members:
-  - Example Postdoc
-  - Example PhD Candidate
-partners:
-  - Westmead Hospital
-grants: [example-grant]
-start: 2025-01
+  - Lab member name
+collaborators:
+  - name: Person outside the lab
+    url: https://example.org/their-profile
+    affiliation: Their university or organisation
+institutions:
+  - name: Partner organisation
+    url: https://example.org
+grants: []
+start: 2026-01
 end:
 importance: 1
 ---
@@ -28,8 +32,14 @@ Notes for whoever is adding a project:
 - Delete `published: false` when the project is ready to go live.
 - `status` is `active` or `completed`.
 - `themes` are slugs from `_data/themes.yml`.
+- `members` are lab members. Use the same spelling as in `_data/members.yml`.
+- `collaborators` are people outside the lab. `institutions` are partner
+  organisations. For both, `url` is optional, and so is `affiliation` on a
+  collaborator. A plain name on its own line also works: `- Jane Smith`.
+  Delete either list if there is nobody to name yet.
 - `grants` are ids from `_data/grants.yml`. Leave the brackets empty if unfunded.
-- `image` is a filename in `assets/img/projects/`. Leave blank for no image.
+- `image` is a filename in `assets/img/projects/`. Upload the image first,
+  then fill this in. Leave blank for no image.
 - `end` blank means ongoing.
 - `importance` orders the cards. Lower numbers come first.
 - `featured: true` puts the project on the front page. Keep it to three or four.

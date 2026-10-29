@@ -60,6 +60,33 @@ layout: page
   </div>
   {% endif %}
 
+  {% comment %}
+    collaborators: people outside the lab. institutions: organisations.
+    Each entry is either a plain name, or a pair with name: and url:
+  {% endcomment %}
+  {% if page.collaborators != blank %}
+  <div class="project-info-block">
+    <div class="project-info-label">Collaborators</div>
+    <ul class="project-list">
+      {% for c in page.collaborators %}
+      <li>{% if c.name %}{% if c.url %}<a href="{{ c.url }}">{{ c.name }}</a>{% else %}{{ c.name }}{% endif %}{% if c.affiliation %} <span class="project-role">{{ c.affiliation }}</span>{% endif %}{% else %}{{ c }}{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {% if page.institutions != blank %}
+  <div class="project-info-block">
+    <div class="project-info-label">Partner institutions</div>
+    <ul class="project-list">
+      {% for i in page.institutions %}
+      <li>{% if i.name %}{% if i.url %}<a href="{{ i.url }}">{{ i.name }}</a>{% else %}{{ i.name }}{% endif %}{% else %}{{ i }}{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {% comment %} Older project files may still use a single partners list. {% endcomment %}
   {% if page.partners != blank %}
   <div class="project-info-block">
     <div class="project-info-label">Partners</div>

@@ -1,34 +1,26 @@
 ---
 layout: project
 published: true
-title: Human-Centred Design Methods in Neonatal Intensive Care Units
+title: Human-Centred Design in the Neonatal Intensive Care Unit
 status: active
 featured: true
-summary: How can Human-Centred Design and Design Thinking help improve the workflow at Neonatal Intensive Care Units.
-themes: [design thinking, HCI]
+summary: Applying human factors and human-centred design methods to understand clinical workflows and evaluate the medical devices NICU staff rely on.
+themes: [health-tech-design, clinical-workflow, HCI]
 image:
-lead: Carlos Tirado
+lead: Carlos Alfredo Tirado Cortes
 members:
-  - Jolene
-partners:
-  - Westmead Hospital
-  - Mark
-grants: [example-grant]
-start: 2025-01
+  - Jolene Galloway
+collaborators:
+  - name: Professor Mark Tracy
+    url: https://profiles.sydney.edu.au/mark.tracy
+institutions:
+  - name: Westmead Hospital NICU
+grants: []
+start: 2026-01
 end:
 importance: 1
 ---
 
-The body is normal markdown. Write as much or as little as you like.
-Headings, images, and links all work.
+Neonatal intensive care is one of the most demanding environments in a hospital. Clinicians juggle monitors, infusion pumps, ventilators and documentation systems while caring for the most vulnerable patients, and every device brings its own interface, alarms and workarounds.
 
-Notes for whoever is adding a project:
-
-- The filename becomes the web address. `airway-vr.md` gives `/projects/airway-vr/`.
-- Delete `published: false` when the project is ready to go live.
-- `status` is `active` or `completed`.
-- `themes` are slugs from `_data/themes.yml`.
-- `grants` are ids from `_data/grants.yml`. Leave the brackets empty if unfunded.
-- `image` is a filename in `assets/img/projects/`. Leave blank for no image.
-- `end` blank means ongoing.
-- `importance` orders the cards. Lower numbers come first.
+Working with the NICU ward at Westmead Hospital, this project applies human factors and human-centred design methods to that environment. We run expert usability evaluations of the devices staff use every day, look across them to understand how they fit together in real workflows, and work with experienced practitioners to define what they actually need. The aim is practical guidance for choosing, configuring and designing technology that supports clinical work rather than adding to it.
